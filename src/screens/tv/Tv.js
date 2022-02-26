@@ -38,9 +38,10 @@ const Tv = ({
   useEffect(() => {
     fetchTvPopular();
     fetchTvToprated();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchTv]);
 
-  const onSubmit = (event) => {
+  const onSubmit = event => {
     const text = event.nativeEvent.text;
     if (text == '') {
       return;
@@ -84,7 +85,7 @@ const Tv = ({
           color: theme.colors.text,
         }}
         value={value}
-        onChangeText={(text) => setValue(text)}
+        onChangeText={text => setValue(text)}
         onSubmitEditing={onSubmit}
       />
       {value !== '' ? (
@@ -172,7 +173,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   popular: state.tv.popular,
   toprated: state.tv.toprated,
   search: state.tv.search,

@@ -12,6 +12,7 @@ const Drama = ({drama, fetchDrama, navigation}) => {
 
   useEffect(() => {
     fetchDrama(offset + 1);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [offset]);
 
   const getData = () => {
@@ -21,6 +22,7 @@ const Drama = ({drama, fetchDrama, navigation}) => {
 
   return (
     <FlatList
+      style={{backgroundColor: theme.colors.background}}
       contentContainerStyle={{backgroundColor: theme.colors.background}}
       data={drama}
       renderItem={({item, index}) => {
@@ -36,7 +38,7 @@ const Drama = ({drama, fetchDrama, navigation}) => {
   );
 };
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   drama: state.movie.drama,
 });
 

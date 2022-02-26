@@ -12,6 +12,7 @@ const Action = ({action, fetchAction, navigation}) => {
 
   useEffect(() => {
     fetchAction(offset);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const getData = () => {
@@ -21,6 +22,7 @@ const Action = ({action, fetchAction, navigation}) => {
 
   return (
     <FlatList
+      style={{backgroundColor: theme.colors.background}}
       contentContainerStyle={{backgroundColor: theme.colors.background}}
       scrollEventThrottle={1}
       data={action}
@@ -29,7 +31,7 @@ const Action = ({action, fetchAction, navigation}) => {
       }}
       keyExtractor={(_, index) => index.toString()}
       onEndReached={getData}
-      onEndReachedThreshold={0.5}
+      onEndReachedThreshold={0.7}
       ListFooterComponent={
         action && <ActivityIndicator size="large" color={theme.colors.text} />
       }
@@ -37,7 +39,7 @@ const Action = ({action, fetchAction, navigation}) => {
   );
 };
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   action: state.movie.actiondata,
 });
 

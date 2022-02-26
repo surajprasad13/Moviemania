@@ -9,7 +9,14 @@ import Love from './Love';
 import {connect} from 'react-redux';
 
 import {fetchMovielist} from '../../redux/actions/movieAction';
-import {Dimensions, Text, View, StyleSheet, TextInput,ActivityIndicator} from 'react-native';
+import {
+  Dimensions,
+  Text,
+  View,
+  StyleSheet,
+  TextInput,
+  ActivityIndicator,
+} from 'react-native';
 
 import {Button, Icon} from 'react-native-elements';
 import {Header} from '../../components';
@@ -24,19 +31,21 @@ const Genre = ({fetchMovielist, navigation}) => {
 
   useEffect(() => {
     fetchMovielist();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
   return (
     <>
       <Header navigation={navigation} />
       <Top.Navigator
         swipeEnabled
-        tabBarOptions={{
-          labelStyle: {fontFamily: font.obold, color: theme.colors.text},
-          style: {backgroundColor: theme.colors.background},
+        screenOptions={{
+          tabBarLabelStyle: {fontFamily: font.obold, color: theme.colors.text},
+          tabBarStyle: {backgroundColor: theme.colors.background},
           allowFontScaling: true,
           scrollEnabled: true,
           activeTintColor: theme.colors.text,
-          indicatorStyle: {backgroundColor: 'red'},
+          tabBarIndicatorStyle: {backgroundColor: 'red'},
         }}>
         <Top.Screen name="All" component={All} />
         <Top.Screen name="Action" component={Action} />
@@ -48,7 +57,7 @@ const Genre = ({fetchMovielist, navigation}) => {
   );
 };
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   movielist: state.movie.movielist,
 });
 

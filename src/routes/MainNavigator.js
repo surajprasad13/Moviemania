@@ -29,8 +29,7 @@ import Account from '../screens/account/Account';
 function HomeStack() {
   return (
     <Stack.Navigator
-      screenOptions={{headerShown: false}}
-      keyboardHandlingEnabled>
+      screenOptions={{headerShown: false, keyboardHandlingEnabled: true}}>
       <Stack.Screen name="Home" component={Home} />
       <Stack.Screen name="Search" component={Search} />
       <Stack.Screen name="Trending" component={Trending} />
@@ -77,7 +76,7 @@ export default function MainNavigator() {
     <Bottom.Navigator
       screenOptions={{headerShown: false}}
       tabBar={props => <MyTabBar {...props} />}>
-      <Bottom.Screen name="Home" component={HomeStack} />
+      <Bottom.Screen name="HomeStack" component={HomeStack} />
       <Bottom.Screen name="Discover" component={DiscoverStack} />
       <Bottom.Screen name="Cast" component={TvStack} />
       <Bottom.Screen name="Settings" component={SettingStack} />

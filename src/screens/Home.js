@@ -30,13 +30,13 @@ const Home = ({
     fetchTrending();
     fetchUpcoming();
     fetchToprated();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <ScrollView
-      scrollEventThrottle={1}
-      bounces={false}
-      style={{flex: 1}}
+      scrollEventThrottle={16}
+      style={{backgroundColor: theme.colors.background}}
       contentContainerStyle={{backgroundColor: theme.colors.background}}>
       <Header navigation={navigation} />
 
@@ -85,7 +85,7 @@ const Home = ({
   );
 };
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   loading: state.movie.loading,
   trending: state.movie.trending,
   upcoming: state.movie.upcoming,

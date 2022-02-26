@@ -12,6 +12,7 @@ const All = ({discover, fetchDiscover, navigation}) => {
 
   useEffect(() => {
     fetchDiscover(offset);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [offset]);
 
   const getData = () => {
@@ -21,6 +22,7 @@ const All = ({discover, fetchDiscover, navigation}) => {
 
   return (
     <FlatList
+      style={{backgroundColor: theme.colors.background}}
       contentContainerStyle={{backgroundColor: theme.colors.background}}
       scrollEventThrottle={1}
       data={discover}
@@ -37,7 +39,7 @@ const All = ({discover, fetchDiscover, navigation}) => {
   );
 };
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   discover: state.movie.discover,
   loading: state.movie.loading,
 });

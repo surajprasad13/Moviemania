@@ -59,6 +59,7 @@ const MovieDetail = ({
     fetchRecommend(id);
     fetchComments(id);
     fetchVideo(id);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const {title, backdrop_path, overview, genres, vote_average, vote_count} =
@@ -69,7 +70,7 @@ const MovieDetail = ({
   }
 
   const goBack = () => {
-    navigation.dispatch((state) => {
+    navigation.dispatch(state => {
       const routes = state.routes;
       return CommonActions.reset({
         index: 1,
@@ -82,12 +83,9 @@ const MovieDetail = ({
   return (
     <ScrollView
       nestedScrollEnabled
-      scrollEventThrottle={1}
-      bounces={false}
-      showsVerticalScrollIndicator={false}
-      contentContainerStyle={{
-        backgroundColor: theme.colors.background,
-      }}>
+      scrollEventThrottle={16}
+      style={{backgroundColor: theme.colors.background}}
+      showsVerticalScrollIndicator={false}>
       <FastImage
         source={{uri: poster + backdrop_path}}
         onLoadStart={() => <ActivityIndicator size="large" color="red" />}
@@ -120,7 +118,9 @@ const MovieDetail = ({
             fontSize: 20,
             color: theme.colors.text,
             fontFamily: font.obold,
-          }}>
+            width: '50%',
+          }}
+          numberOfLines={2}>
           {title}
         </Text>
         <View style={styles.section}>
@@ -163,13 +163,12 @@ const MovieDetail = ({
           justifyContent: 'space-around',
           flexDirection: 'row',
           alignItems: 'center',
-          margin: 10,
         }}>
         <AirbnbRating
           count={5}
           showRating={false}
           defaultRating={vote_average / 2}
-          size={30}
+          size={20}
         />
         <Text style={{fontSize: 25, fontFamily: font.obold, color: 'orange'}}>
           {vote_average}
@@ -223,25 +222,32 @@ const MovieDetail = ({
         }}
       />
 
-      <View style={{padding: 10}}>
+      <View>
         <Text
           style={{
             fontSize: 20,
             fontFamily: font.bold,
             color: theme.colors.text,
+            padding: 10,
           }}>
           Movie introduction
         </Text>
-        <Text style={{color: theme.colors.text, fontFamily: font.italic}}>
+        <Text
+          style={{
+            color: theme.colors.text,
+            fontFamily: font.italic,
+            padding: 10,
+          }}>
           {overview}
         </Text>
       </View>
-      <View style={{padding: 10}}>
+      <View>
         <Text
           style={{
             fontSize: 20,
             color: theme.colors.text,
             fontFamily: font.bold,
+            padding: 10,
           }}>
           Recommendation
         </Text>
@@ -254,12 +260,13 @@ const MovieDetail = ({
           )}
         />
       </View>
-      <View style={{padding: 10}}>
+      <View>
         <Text
           style={{
             color: theme.colors.text,
             fontSize: 20,
             fontFamily: font.bold,
+            padding: 10,
           }}>
           Trailers
         </Text>
@@ -267,7 +274,7 @@ const MovieDetail = ({
           horizontal
           pagingEnabled
           data={video}
-          contentContainerStyle={{height: 200}}
+          contentContainerStyle={{height: 200, padding: 10}}
           ListEmptyComponent={
             <Text style={{fontSize: 25, color: 'red'}}>Empty</Text>
           }
@@ -286,12 +293,13 @@ const MovieDetail = ({
           }}
         />
       </View>
-      <View style={{padding: 10}}>
+      <View>
         <Text
           style={{
             color: theme.colors.text,
             fontFamily: font.bold,
             fontSize: 20,
+            padding: 10,
           }}>
           Comments
         </Text>
@@ -323,7 +331,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   detail: state.detail.detail,
   cast: state.detail.cast,
   images: state.detail.images,

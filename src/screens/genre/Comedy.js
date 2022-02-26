@@ -12,6 +12,7 @@ const Comedy = ({comedy, fetchComedy, loading, navigation}) => {
 
   useEffect(() => {
     fetchComedy(offset + 1);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [offset]);
 
   const getData = () => {
@@ -21,6 +22,7 @@ const Comedy = ({comedy, fetchComedy, loading, navigation}) => {
 
   return (
     <FlatList
+      style={{backgroundColor: theme.colors.background}}
       contentContainerStyle={{backgroundColor: theme.colors.background}}
       data={comedy}
       renderItem={({item, index}) => {
@@ -36,7 +38,7 @@ const Comedy = ({comedy, fetchComedy, loading, navigation}) => {
   );
 };
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   comedy: state.movie.comedy,
   loading: state.movie.loading,
 });

@@ -22,7 +22,7 @@ export default function AppNavigator() {
         Main: {
           path: 'main',
           screens: {
-            Home: {
+            HomeStack: {
               screens: {
                 Detail: 'detail/:id',
               },

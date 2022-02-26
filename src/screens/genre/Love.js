@@ -12,6 +12,7 @@ const Love = ({love, fetchLove, navigation}) => {
 
   useEffect(() => {
     fetchLove(offset + 1);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [offset]);
 
   const getData = () => {
@@ -21,6 +22,7 @@ const Love = ({love, fetchLove, navigation}) => {
 
   return (
     <FlatList
+      style={{backgroundColor: theme.colors.background}}
       contentContainerStyle={{backgroundColor: theme.colors.background}}
       data={love}
       renderItem={({item, index}) => {
@@ -36,7 +38,7 @@ const Love = ({love, fetchLove, navigation}) => {
   );
 };
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   love: state.movie.love,
 });
 

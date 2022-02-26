@@ -9,8 +9,9 @@ const Header = ({navigation}) => {
   const theme = getColorTheme();
 
   return (
-    <View style={{backgroundColor: theme.colors.background}}>
-      <View style={{margin: 10}}>
+    <View
+      style={[styles.container, {backgroundColor: theme.colors.background}]}>
+      <View style={{padding: 15}}>
         <Text style={{color: theme.colors.text}}>
           What movie are you looking
         </Text>
@@ -36,7 +37,7 @@ const Header = ({navigation}) => {
         </View>
         <Button
           title="+33"
-          buttonStyle={{backgroundColor: 'red'}}
+          buttonStyle={{backgroundColor: 'red', borderRadius: 15}}
           titleStyle={{color: 'white'}}
         />
       </View>
@@ -45,7 +46,9 @@ const Header = ({navigation}) => {
 };
 
 const styles = StyleSheet.create({
-  container: {},
+  container: {
+    padding: 15,
+  },
 });
 
 export default Header;
