@@ -27,7 +27,7 @@ export default function AppNavigator() {
                 Detail: 'detail/:id',
               },
             },
-            Discover: {
+            DiscoverStack: {
               path: 'discover',
               screens: {
                 Detail: 'detail/:id',

@@ -38,7 +38,6 @@ const Genre = ({fetchMovielist, navigation}) => {
     <>
       <Header navigation={navigation} />
       <Top.Navigator
-        swipeEnabled
         screenOptions={{
           tabBarLabelStyle: {fontFamily: font.obold, color: theme.colors.text},
           tabBarStyle: {backgroundColor: theme.colors.background},
@@ -46,6 +45,7 @@ const Genre = ({fetchMovielist, navigation}) => {
           scrollEnabled: true,
           activeTintColor: theme.colors.text,
           tabBarIndicatorStyle: {backgroundColor: 'red'},
+          swipeEnabled: true,
         }}>
         <Top.Screen name="All" component={All} />
         <Top.Screen name="Action" component={Action} />

@@ -77,7 +77,7 @@ export default function MainNavigator() {
       screenOptions={{headerShown: false}}
       tabBar={props => <MyTabBar {...props} />}>
       <Bottom.Screen name="HomeStack" component={HomeStack} />
-      <Bottom.Screen name="Discover" component={DiscoverStack} />
+      <Bottom.Screen name="DiscoverStack" component={DiscoverStack} />
       <Bottom.Screen name="Cast" component={TvStack} />
       <Bottom.Screen name="Settings" component={SettingStack} />
     </Bottom.Navigator>
