@@ -28,7 +28,9 @@ import Account from '../screens/account/Account';
 
 function HomeStack() {
   return (
-    <Stack.Navigator headerMode="none" keyboardHandlingEnabled>
+    <Stack.Navigator
+      screenOptions={{headerShown: false}}
+      keyboardHandlingEnabled>
       <Stack.Screen name="Home" component={Home} />
       <Stack.Screen name="Search" component={Search} />
       <Stack.Screen name="Trending" component={Trending} />
@@ -42,7 +44,7 @@ function HomeStack() {
 
 function DiscoverStack() {
   return (
-    <Stack.Navigator headerMode="none">
+    <Stack.Navigator screenOptions={{headerShown: false}}>
       <Stack.Screen name="Discover" component={Genre} />
       <Stack.Screen name="Search" component={Search} />
       <Stack.Screen name="Detail" component={MovieDetail} />
@@ -53,7 +55,7 @@ function DiscoverStack() {
 
 function TvStack() {
   return (
-    <Stack.Navigator headerMode="none">
+    <Stack.Navigator screenOptions={{headerShown: false}}>
       <Stack.Screen name="Tv" component={Tv} />
       <Stack.Screen name="Tvdetail" component={TvDetail} />
     </Stack.Navigator>
@@ -62,7 +64,7 @@ function TvStack() {
 
 function SettingStack() {
   return (
-    <Stack.Navigator headerMode="none">
+    <Stack.Navigator screenOptions={{headerShown: false}}>
       <Stack.Screen name="Setting" component={Settings} />
       <Stack.Screen name="Login" component={Login} />
       <Stack.Screen name="Account" component={Account} />

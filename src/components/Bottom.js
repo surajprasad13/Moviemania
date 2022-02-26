@@ -41,7 +41,7 @@ function MyTabBar({state, descriptors, navigation}) {
         styles.container,
         {
           backgroundColor: theme.colors.bottomBackground,
-          paddingBottom: safe.bottom,
+          paddingBottom: safe.bottom == 0 ? 15 : safe.bottom,
         },
       ]}>
       {state.routes.map((route, index) => {
